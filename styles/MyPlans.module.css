@@ -1,0 +1,49 @@
+.pageShell { width:100%; max-width:1080px; display:flex; flex-direction:column; gap:22px; padding:40px 0 80px; }
+.pageHeader { text-align:center; color:#fff; display:flex; flex-direction:column; align-items:center; gap:12px; }
+.pageHeader h1 { font-size:clamp(2.2rem,5vw,4rem); font-weight:800; line-height:1.05; }
+.pageHeader p { max-width:640px; font-size:1rem; line-height:1.7; opacity:0.9; }
+
+.stateCard, .errorCard { width:100%; background:#fff; border:1px solid var(--border); border-radius:15px; padding:26px 28px; color:var(--text-dark); font-weight:800; text-align:center; box-shadow:0 14px 34px rgba(15,43,28,0.14); }
+.errorCard { color:var(--error); border-color:#f3b4ad; }
+.emptyText { color:var(--text-soft); font-weight:700; }
+
+.planGrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+.planCard { background:#fff; border:1px solid var(--border); border-radius:15px; padding:22px; color:var(--text-dark); display:flex; flex-direction:column; gap:18px; box-shadow:0 14px 34px rgba(15,43,28,0.14); }
+.planCard h2 { font-size:1.28rem; font-weight:800; }
+.dateLabel { color:var(--text-soft); font-size:0.82rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px; }
+.planMeta { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.planMeta div { background:var(--meal-card); border:1px solid var(--border); border-radius:10px; padding:10px; min-width:0; }
+.planMeta dt { color:var(--text-soft); font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; }
+.planMeta dd { margin:4px 0 0; font-weight:800; overflow-wrap:anywhere; }
+.cardActions { display:flex; flex-wrap:wrap; gap:10px; }
+.primaryBtn, .dangerBtn, .closeBtn { border:none; border-radius:999px; padding:10px 15px; font:inherit; font-size:0.88rem; font-weight:800; cursor:pointer; transition:opacity 0.2s,transform 0.15s; }
+.primaryBtn { background:var(--accent); color:#fff; }
+.dangerBtn { background:#fff0ed; color:var(--error); border:1px solid #f3b4ad; }
+.closeBtn { background:var(--accent); color:#fff; }
+.primaryBtn:hover, .dangerBtn:hover, .closeBtn:hover { transform:translateY(-1px); }
+.dangerBtn:disabled { opacity:0.55; cursor:not-allowed; transform:none; }
+
+.modalBackdrop { position:fixed; inset:0; background:rgba(10,28,19,0.72); padding:24px; display:flex; align-items:center; justify-content:center; z-index:200; }
+.modal { width:min(920px,100%); max-height:min(86vh,900px); overflow:auto; background:#fff; border:1px solid var(--border); border-radius:15px; padding:24px; color:var(--text-dark); box-shadow:0 24px 60px rgba(0,0,0,0.26); }
+.modalHeader { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding-bottom:16px; border-bottom:1px solid var(--border); margin-bottom:16px; }
+.modalHeader h2 { font-size:1.45rem; font-weight:800; }
+.detailStack { display:flex; flex-direction:column; gap:16px; }
+.detailDay { background:#fbfdfb; border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:12px; }
+.detailDay h3 { font-size:1.05rem; font-weight:800; }
+.detailMeal { background:var(--meal-card); border:1px solid #e7e2d9; border-radius:10px; overflow:hidden; }
+.detailMealHeader { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; background:#fff; border-bottom:1px solid #eee8df; }
+.detailMealHeader span { color:var(--text-soft); font-size:0.8rem; font-weight:800; white-space:nowrap; }
+.detailFoods { padding:10px 14px; display:flex; flex-direction:column; gap:7px; }
+.detailFoodRow { display:flex; align-items:center; justify-content:space-between; gap:12px; color:var(--text-dark); }
+.detailFoodRow span { overflow-wrap:anywhere; }
+.detailFoodRow strong { white-space:nowrap; }
+.detailMacros { background:#f7f1e8; border-top:1px solid #eee8df; color:var(--text-soft); font-size:0.82rem; font-weight:700; line-height:1.5; padding:10px 14px; }
+
+@media(max-width:700px) {
+  .pageShell { width:calc(100vw - 32px); max-width:calc(100vw - 32px); padding:28px 0 60px; }
+  .planMeta { grid-template-columns:1fr; }
+  .modalBackdrop { padding:16px; align-items:flex-start; }
+  .modal { max-height:calc(100vh - 32px); padding:18px; }
+  .modalHeader { flex-direction:column; }
+  .detailMealHeader, .detailFoodRow { align-items:flex-start; flex-direction:column; }
+}

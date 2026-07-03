@@ -1,0 +1,25 @@
+.form { box-sizing:border-box; width:100%; max-width:650px; min-width:0; background:var(--card); border:1px solid var(--border); border-radius:15px; padding:34px 32px; display:flex; flex-direction:column; gap:22px; box-shadow:0 18px 45px rgba(15,43,28,0.18); }
+.formTitle { font-size:1.55rem; font-weight:800; color:var(--text-dark); }
+.formSub { font-size:0.9rem; color:var(--text-soft); margin-top:-14px; line-height:1.5; overflow-wrap:break-word; }
+
+.field { display:flex; flex-direction:column; gap:6px; }
+.label { font-size:0.9rem; font-weight:700; color:var(--text-dark); }
+.labelHint { color:var(--sage-mid); font-weight:700; }
+.fieldHint { font-size:0.8rem; color:var(--text-soft); line-height:1.5; overflow-wrap:break-word; }
+.fieldHint strong { color:var(--text-dark); }
+.fieldError { font-size:0.775rem; color:var(--error); }
+
+.input, .select { box-sizing:border-box; width:100%; max-width:100%; padding:13px 16px; background:#fff; border:1px solid #cad8ce; border-radius:10px; color:var(--text-dark); font-size:0.96rem; font-family:inherit; transition:border-color 0.2s,box-shadow 0.2s; outline:none; appearance:none; -webkit-appearance:none; }
+.input::placeholder { color:#7d8d82; }
+.input:focus, .select:focus { border-color:var(--sage-mid); box-shadow:0 0 0 3px rgba(166,192,174,0.4); }
+.select { cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232D4034' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:40px; }
+.select option { background:#fff; color:var(--text-dark); }
+.inputError { border-color:var(--error) !important; }
+
+.submitBtn { width:100%; padding:15px 24px; background:var(--accent); border:none; border-radius:12px; color:white; font-size:1rem; font-weight:800; font-family:inherit; cursor:pointer; transition:background 0.2s,transform 0.15s,box-shadow 0.2s; margin-top:4px; }
+.submitBtn:hover:not(:disabled) { background:#1f3026; transform:translateY(-1px); box-shadow:0 10px 22px rgba(45,64,52,0.22); }
+.submitBtn:disabled { opacity:0.6; cursor:not-allowed; }
+.btnLoading { display:flex; align-items:center; justify-content:center; gap:10px; }
+.btnSpinner { width:16px; height:16px; border:2px solid rgba(255,255,255,0.3); border-top-color:white; border-radius:50%; animation:spin 0.7s linear infinite; }
+
+@media(max-width:700px) { .form { width:calc(100vw - 32px); max-width:calc(100vw - 32px); padding:26px 20px; gap:20px; } }

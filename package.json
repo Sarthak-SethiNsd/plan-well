@@ -1,0 +1,16 @@
+{
+  "name": "plan-well-meal-planner",
+  "version": "1.0.0",
+  "description": "Plan Well 7-Day Indian Meal Planner for Weight Loss",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "firebase": "^12.15.0",
+    "next": "14.2.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}
