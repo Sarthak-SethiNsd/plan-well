@@ -92,14 +92,6 @@ styles/            CSS modules and global styles
 - Firebase Firestore
 - CSS Modules
 
-## Future Improvements
-
-- Add automated testing
-- Add nutrition analytics
-- Add PDF export for meal plans
-- Improve account-level meal plan management
-- Support additional health goals
-
 ## Disclaimer
 
 Plan Well is intended for educational and planning purposes only. It does not provide medical advice. Users with medical conditions or specific dietary requirements should consult a qualified healthcare professional or nutritionist before making dietary changes.
