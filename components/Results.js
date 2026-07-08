@@ -15,7 +15,6 @@ function MealCard({ meal }) {
       <div className={styles.mealHeader}>
         <span className={styles.mealName}>{meal.meal}</span>
         <div className={styles.mealHeaderActions}>
-          <span className={styles.mealBudget}>{fmt(meal.calorieBudget)} kcal budget</span>
           <button type="button" className={styles.swapBtn}>Swap</button>
         </div>
       </div>
@@ -181,6 +180,20 @@ function FeedbackForm({ user, isFirebaseConfigured }) {
 
 export default function Results({ plan, foods, user, isFirebaseConfigured, onStartNewPlan }) {
   const { inputs, nutritionTargets, weeklyPlan, weeklySummary } = plan
+  const [downloading, setDownloading] = useState(false)
+
+  async function handleDownload() {
+    if (downloading) return
+    setDownloading(true)
+    try {
+      const { generateMealPlanPDF } = await import('../lib/generatePDF')
+      await generateMealPlanPDF(plan, foods)
+    } catch (err) {
+      console.error('PDF generation failed:', err)
+    } finally {
+      setDownloading(false)
+    }
+  }
   const dietLabel = { vegetarian:'Vegetarian', 'vegetarian+egg':'Vegetarian + Egg', 'non-vegetarian':'Non-Vegetarian' }[inputs.dietType] || inputs.dietType
 
   return (
@@ -242,8 +255,17 @@ export default function Results({ plan, foods, user, isFirebaseConfigured, onSta
       <FoodReferenceTable plan={plan} foods={foods} />
       <FeedbackForm user={user} isFirebaseConfigured={isFirebaseConfigured} />
 
-      <div className={styles.newPlanSection}>
+      <div className={styles.actionButtons}>
         <button type="button" className={styles.newPlanBtn} onClick={onStartNewPlan}>Start New Plan</button>
+        <button
+          type="button"
+          className={styles.downloadBtn}
+          onClick={handleDownload}
+          disabled={downloading}
+          id="download-pdf-btn"
+        >
+          {downloading ? '⏳ Generating PDF...' : '📄 Download Meal Plan (PDF)'}
+        </button>
       </div>
     </div>
   )

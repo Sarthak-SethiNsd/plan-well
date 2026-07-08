@@ -40,7 +40,6 @@ function SavedPlanDetails({ savedPlan }) {
             <div key={`${day.day}-${meal.meal}-${index}`} className={styles.detailMeal}>
               <div className={styles.detailMealHeader}>
                 <strong>{meal.meal}</strong>
-                <span>{meal.calorieBudget} kcal budget</span>
               </div>
               <div className={styles.detailFoods}>
                 {meal.items.map((item, itemIndex) => (
@@ -67,7 +66,8 @@ export default function MyPlans() {
   const [loadingPlans, setLoadingPlans] = useState(false)
   const [error, setError] = useState('')
   const [selectedPlan, setSelectedPlan] = useState(null)
-  const [deletingId, setDeletingId] = useState('')
+  const [deletingId, setDeletingId]           = useState('')
+  const [downloadingPlanId, setDownloadingPlanId] = useState('')
 
   useEffect(() => {
     if (auth.loading) return
@@ -113,6 +113,20 @@ export default function MyPlans() {
       setError('We could not delete that meal plan. Please try again.')
     } finally {
       setDeletingId('')
+    }
+  }
+
+  async function handleDownloadPDF(savedPlan) {
+    if (downloadingPlanId) return
+    setDownloadingPlanId(savedPlan.id)
+    try {
+      const { generateMealPlanPDF } = await import('../lib/generatePDF')
+      // Saved plans don't carry the foods DB, so the reference table is omitted.
+      await generateMealPlanPDF(savedPlan.plan, null)
+    } catch (err) {
+      console.error('PDF generation failed:', err)
+    } finally {
+      setDownloadingPlanId('')
     }
   }
 
@@ -178,6 +192,14 @@ export default function MyPlans() {
                   </dl>
                   <div className={styles.cardActions}>
                     <button type="button" className={styles.primaryBtn} onClick={() => setSelectedPlan(plan)}>View Plan</button>
+                    <button
+                      type="button"
+                      className={styles.downloadBtn}
+                      onClick={() => handleDownloadPDF(plan)}
+                      disabled={downloadingPlanId === plan.id}
+                    >
+                      {downloadingPlanId === plan.id ? 'Generating...' : '📄 Download PDF'}
+                    </button>
                     <button type="button" className={styles.dangerBtn} onClick={() => handleDelete(plan.id)} disabled={deletingId === plan.id}>
                       {deletingId === plan.id ? 'Deleting...' : 'Delete Plan'}
                     </button>
@@ -196,7 +218,17 @@ export default function MyPlans() {
                   <p className={styles.dateLabel}>{formatDate(selectedPlan.createdAt)}</p>
                   <h2>{prettyDietType(selectedPlan.dietType)} Plan</h2>
                 </div>
-                <button type="button" className={styles.closeBtn} onClick={() => setSelectedPlan(null)}>Close</button>
+                <div className={styles.modalActions}>
+                  <button
+                    type="button"
+                    className={styles.downloadBtn}
+                    onClick={() => handleDownloadPDF(selectedPlan)}
+                    disabled={downloadingPlanId === selectedPlan.id}
+                  >
+                    {downloadingPlanId === selectedPlan.id ? 'Generating...' : '📄 Download PDF'}
+                  </button>
+                  <button type="button" className={styles.closeBtn} onClick={() => setSelectedPlan(null)}>Close</button>
+                </div>
               </div>
               <SavedPlanDetails savedPlan={selectedPlan} />
             </div>
