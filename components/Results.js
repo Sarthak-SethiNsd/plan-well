@@ -14,9 +14,6 @@ function MealCard({ meal }) {
     <div className={styles.mealCard}>
       <div className={styles.mealHeader}>
         <span className={styles.mealName}>{meal.meal}</span>
-        <div className={styles.mealHeaderActions}>
-          <button type="button" className={styles.swapBtn}>Swap</button>
-        </div>
       </div>
       <div className={styles.mealItems}>
         {meal.items.map((item, i) => (
