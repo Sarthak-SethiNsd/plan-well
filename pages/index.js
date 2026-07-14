@@ -18,7 +18,7 @@ export default function Home() {
   const topRef = useRef(null)
   const auth = useAuth()
 
-  async function handleGenerate({ weight, state, dietType, mealsPerDay }) {
+  async function handleGenerate({ weight, state, dietType, mealsPerDay, supplements }) {
     if (loading) return
     setError('')
     setLoading(true)
@@ -30,7 +30,7 @@ export default function Home() {
         db = await getFoodDatabase()
         setFoods(db)
       }
-      const plan = generate7DayPlan(weight, state, dietType, mealsPerDay, db)
+      const plan = generate7DayPlan(weight, state, dietType, mealsPerDay, db, supplements || [])
       setPlanData({ plan, foods: db })
       if (auth.user) {
         saveMealPlan({ user: auth.user, weight, state, dietType, mealsPerDay, plan })
