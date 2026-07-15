@@ -29,10 +29,131 @@
 .error { width:100%; max-width:650px; color:var(--error); font-size:0.95rem; margin-top:14px; padding:14px 16px; background:#fff; border:1px solid #f3b4ad; border-radius:10px; box-shadow:0 12px 24px rgba(22,53,37,0.14); display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .retryButton { border:none; background:var(--accent); color:#fff; border-radius:999px; padding:8px 14px; font:inherit; font-size:0.84rem; font-weight:800; cursor:pointer; white-space:nowrap; }
 
-.loadingSection { display:flex; flex-direction:column; align-items:center; gap:16px; padding:48px 24px; }
-.spinner { width:48px; height:48px; border:3px solid rgba(255,255,255,0.28); border-top-color:#fff; border-radius:50%; animation:spin 0.8s linear infinite; }
-.loadingText { font-size:1rem; font-weight:700; color:#fff; }
-.loadingSubText { font-size:0.85rem; color:#fff; opacity:0.82; }
+.loadingSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px 56px;
+  width: 100%;
+  max-width: 560px;
+}
+
+/* The white card */
+.loadingCard {
+  width: 100%;
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px 36px 28px;
+  box-shadow: 0 24px 60px rgba(15, 43, 28, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Card header row: spinner + heading */
+.loadingHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Animated ring spinner */
+.loadingSpinnerRing {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(45, 64, 52, 0.14);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  display: inline-block;
+}
+
+.loadingHeading {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+/* Step list */
+.stepList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Each step starts hidden (translate + fade) */
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(166, 192, 174, 0.18);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  color: var(--text-soft);
+  font-size: 0.93rem;
+  font-weight: 600;
+}
+.stepItem:last-child { border-bottom: none; }
+
+/* Slide in when step becomes visible */
+.stepVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Green tick when done */
+.stepDone { color: var(--text-dark); }
+
+.stepIcon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 900;
+  background: rgba(166, 192, 174, 0.15);
+  color: var(--text-soft);
+  transition: background 0.3s, color 0.3s;
+}
+.stepDone .stepIcon {
+  background: #e0f0e6;
+  color: #2a7a4b;
+}
+
+/* Pulsing dot for in-progress steps */
+.stepDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sage-mid);
+  display: inline-block;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.stepLabel { line-height: 1.4; }
+
+/* Small bottom note */
+.loadingNote {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  text-align: center;
+  margin: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1);   opacity: 1;  }
+  50%       { transform: scale(1.4); opacity: 0.5; }
+}
+
 
 .footer { width:100%; max-width:1080px; text-align:center; padding:28px 0 34px; border-top:1px solid rgba(255,255,255,0.18); margin-top:auto; color:#fff; font-size:0.82rem; display:flex; flex-direction:column; gap:6px; opacity:0.86; }
 .footerNote { font-size:0.76rem; opacity:0.82; }
