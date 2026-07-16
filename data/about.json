@@ -1,91 +1,120 @@
 {
   "title": "About Plan Well",
-  "subtitle": "Plan Well helps users create personalized 7-day Indian meal plans to support healthy eating and weight-loss goals based on their preferences and lifestyle.",
+  "subtitle": "Plan Well is a personalized Indian nutrition planner that generates science-based 7-day meal plans tailored to your weight, dietary preferences, location, and lifestyle to support healthier eating habits and sustainable weight-loss goals.",
   "sections": [
     {
       "title": "About Plan Well",
       "content": [
-        "Plan Well is a nutrition planning website designed to simplify weekly meal planning for people following an Indian diet.",
-        "The website generates personalized 7-day meal plans based on your weight, state, dietary preference, and preferred number of meals per day.",
-        "Its primary focus is to help users build healthier eating habits and support their weight-loss journey through structured meal planning."
+        "Plan Well is a modern nutrition planning web application built to simplify healthy eating through personalized Indian meal planning.",
+        "The application generates a customized 7-day meal plan based on your weight, state or union territory, dietary preference, meals per day, and optional protein supplement information.",
+        "Instead of providing generic meal suggestions, Plan Well creates structured meal plans with portion guidance, nutritional summaries, and a balanced weekly schedule tailored to your selected preferences.",
+        "The project combines an intuitive user experience with secure cloud storage, allowing users to generate, save, revisit, and manage their meal plans from anywhere."
       ],
       "bullets": []
     },
     {
       "title": "Who Can Use Plan Well?",
       "content": [
-        "Plan Well is suitable for anyone looking for a simple and organized way to plan healthy meals throughout the week.",
-        "Whether you are beginning your weight-loss journey, trying to improve your eating habits, or simply want a structured weekly meal plan, Plan Well provides an easy starting point."
+        "Plan Well is designed for anyone who wants a simple and organized way to plan healthier meals without spending hours creating meal schedules manually.",
+        "Whether you are beginning a weight-loss journey, improving your eating habits, maintaining a healthy lifestyle, or simply looking for structured Indian meal planning, Plan Well provides an easy starting point."
       ],
       "bullets": [
         "Students",
         "Working professionals",
+        "Fitness enthusiasts",
         "Families",
-        "Anyone interested in healthier eating",
-        "People working towards weight-loss goals"
+        "People pursuing healthier eating habits",
+        "Individuals working towards weight-loss goals"
       ]
     },
     {
       "title": "Key Features",
       "content": [
-        "Plan Well makes meal planning simple while giving users enough flexibility to create a plan that matches their preferences."
+        "Plan Well combines personalized meal planning with modern web technologies to provide a smooth and user-friendly experience."
       ],
       "bullets": [
-        "Personalized 7-day meal plans",
+        "Personalized 7-day Indian meal plans",
+        "Weight-based meal generation",
         "Support for multiple dietary preferences",
-        "State-based Indian meal recommendations",
-        "Adjustable number of meals per day",
-        "Google Sign-In",
-        "Automatic saving of meal plans",
-        "View previously saved meal plans",
-        "Delete saved meal plans at any time",
-        "Simple, clean and responsive interface"
+        "State and Union Territory based recommendations",
+        "Configurable meals per day",
+        "Optional protein supplement integration",
+        "Weekly nutritional summary",
+        "Google Authentication",
+        "Automatic cloud saving using Firebase",
+        "View and manage previously saved meal plans",
+        "Delete saved meal plans anytime",
+        "Download meal plans as PDF",
+        "Responsive interface for desktop and mobile",
+        "Real-time validation with helpful error messages",
+        "Smooth loading experience during meal generation"
       ]
     },
     {
       "title": "How to Use",
       "content": [
-        "You can generate a meal plan without signing in. If you sign in with Google, your meal plans will be saved automatically.",
-        "Enter your weight, choose your state, select your dietary preference, and choose how many meals you want each day. Plan Well will generate a personalized 7-day meal plan for you.",
-        "Review the daily meals and weekly summary. If you are signed in, you can return to My Meal Plans at any time to view or delete your saved plans."
+        "Generating a meal plan is quick and straightforward. You may use the application without signing in, or sign in with Google to automatically save your plans.",
+        "Enter your weight, choose your state or union territory, select your dietary preference, choose the number of meals per day, and optionally provide protein supplement information if you use supplements.",
+        "Plan Well generates a personalized weekly meal plan, displays nutritional summaries, and allows signed-in users to revisit or download their meal plans whenever required."
       ],
       "bullets": [
-        "Sign in with Google (optional)",
+        "Optionally sign in with Google",
         "Enter your preferences",
-        "Generate your meal plan",
-        "Review your weekly plan",
-        "View saved meal plans",
-        "Delete saved meal plans whenever you want"
+        "Add protein supplement information (optional)",
+        "Generate your personalized meal plan",
+        "Review your weekly nutrition summary",
+        "Download the meal plan as PDF",
+        "View previously saved meal plans",
+        "Delete saved meal plans whenever needed"
       ]
     },
     {
       "title": "Frequently Asked Questions",
       "content": [],
       "bullets": [
-        "Do I need to sign in? No. You can generate meal plans without signing in. Signing in simply allows your meal plans to be saved.",
-        "Can I create multiple meal plans? Yes. You can generate as many meal plans as you like.",
-        "Are my saved meal plans private? Yes. Your saved meal plans are linked only to your Google account.",
-        "Can I delete my saved meal plans? Yes. You can delete them at any time from My Meal Plans.",
-        "Can I generate meal plans for different states? Yes. You can choose a different state whenever you generate a new meal plan."
+        "Do I need to sign in? No. You can generate meal plans without signing in. Signing in allows your meal plans to be securely saved to your account.",
+        "Can I generate multiple meal plans? Yes. There is no limit to the number of meal plans you can create.",
+        "Can I use protein supplements? Yes. You can optionally provide nutritional information for supported protein supplements so they can be incorporated into your meal plan.",
+        "Can I download my meal plan? Yes. Generated meal plans can be downloaded as a PDF.",
+        "Are my saved meal plans private? Yes. Saved meal plans are associated only with your authenticated Google account.",
+        "Can I delete saved meal plans? Yes. You may delete any saved meal plan at any time.",
+        "Can I create meal plans for different states? Yes. Simply choose a different state or union territory before generating a new plan."
+      ]
+    },
+    {
+      "title": "Technologies Used",
+      "content": [
+        "Plan Well was developed using a modern full-stack web development stack focused on performance, scalability, and user experience."
+      ],
+      "bullets": [
+        "Next.js",
+        "React",
+        "JavaScript",
+        "CSS Modules",
+        "Firebase Authentication",
+        "Cloud Firestore",
+        "jsPDF",
+        "Responsive Web Design"
       ]
     },
     {
       "title": "About the Developer",
       "content": [
-        "Plan Well was developed as a portfolio project to demonstrate the design and development of a complete web application focused on personalized nutrition planning.",
-        "The project emphasizes a clean user experience, practical meal planning, secure user accounts, and cloud-based storage for saved meal plans.",
-        "The website will continue to improve as new features and enhancements are added over time."
+        "Plan Well was developed as a portfolio project to demonstrate the design and development of a complete full-stack web application focused on personalized nutrition planning.",
+        "The project showcases responsive user interface design, secure authentication, cloud database integration, personalized recommendation logic, PDF generation, and an overall production-quality user experience.",
+        "The application emphasizes simplicity, usability, and practical meal planning while demonstrating modern web development best practices."
       ],
       "bullets": []
     },
     {
-    "title": "Disclaimer",
-    "content": [
-      "Plan Well is designed to help users create structured meal plans and support healthier eating habits.",
-      "The meal plans generated by the website are intended for educational and planning purposes only and should not be considered medical, nutritional, or professional healthcare advice.",
-      "If you have any medical conditions, dietary restrictions, or specific health concerns, please consult a qualified healthcare professional or registered dietitian before making significant changes to your diet."
-    ],
-    "bullets": []
+      "title": "Disclaimer",
+      "content": [
+        "Plan Well is intended to assist users with structured meal planning and healthier eating habits.",
+        "The meal plans generated by the application are provided for educational and informational purposes only and should not be considered medical, nutritional, or professional healthcare advice.",
+        "Nutrition requirements vary between individuals. If you have medical conditions, allergies, dietary restrictions, or specific health concerns, consult a qualified healthcare professional or registered dietitian before making significant dietary changes.",
+        "Users are responsible for verifying ingredients, allergies, and nutritional suitability before following any meal plan."
+      ],
+      "bullets": []
     }
   ]
 }
