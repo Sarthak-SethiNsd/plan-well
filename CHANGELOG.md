@@ -9,15 +9,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [1.1.0] - 2026-07-14
 
 ### Added
-- **Protein Supplement OCR Scanner:** Integrated Google Gemini 2.0 Flash Vision to scan nutrition labels and extract calorie/macronutrient parameters directly.
+- **Protein Supplement Support:** Added optional supplement entry to the planning form. Users can manually enter nutrition values (Calories, Protein, Carbohydrates, Fat, Fibre) from a Protein Powder or Protein Bar label, specifying whether values are per serving or per 100 g.
 - **Supplement Priority Reduction Loop:** Implemented Stage 6 in `lib/planner.js` to offset protein supplement targets by dynamically scaling back primary protein sources (Soya TVP, Paneer, Tofu, Eggs, Non-Veg) in $25\text{g}$ iterations.
 - **Form UI Supplement Formats:** Added dynamic add/remove supplement rows to `InputForm.js` supporting per-100g and per-serving options.
 - **Animated Progress Checklist:** Introduced a step-by-step visual progress checklist card when generating plans, featuring delayed entry animations and checkbox validations.
 
 ### Changed
-- **Gemini Model Upgrade:** Updated the Vision API endpoint to run on the latest `gemini-2.0-flash` model.
 - **Results Layout Clean-up:** Removed legacy "Swap" buttons, quality badges, and calorie budget labels from the main results page and history cards for cleaner aesthetics.
-- **Professional PDF Generation:** Redesigned PDF exports to output as clean nutrition sheets with premium styling, summary cards, and highlighted macro blocks.
+- **Professional PDF Generation:** Redesigned PDF exports to output as clean nutrition report sheets with premium styling, summary cards, and highlighted macro blocks.
 
 ---
 
